@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+layout:decorate="~{layout.html}">
 <head>
-    <meta charset="UTF-8">
     <title>Kontakt</title>
 </head>
+
 <body>
 <div th:replace="fragments :: header"></div>
-<h2>Kontakt</h2>
 
+<section layout:fragment="content">
 
-<div th:replace="fragments :: footer"></div>
+    <h2>Kontakt</h2>
 
-
+    <div th:replace="fragments :: footer"></div>
+</section>
 </body>
 </html>
