@@ -1,5 +1,6 @@
 package pl.kinga.formularz;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -11,10 +12,12 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 @Service
-public class MailService {
+public class EmailService {
+
+    @Autowired
     private JavaMailSender javaMailSender;
 
-    public MailService(JavaMailSender javaMailSender) {
+    public EmailService(JavaMailSender javaMailSender) {
         this.javaMailSender = javaMailSender;
     }
 
@@ -33,6 +36,8 @@ public class MailService {
 
     }
 }
+
+
 
 //    public void sendEmail(String to, String subject, String content) {
 //        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();

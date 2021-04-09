@@ -9,11 +9,11 @@ import javax.naming.Context;
 @Controller
 public class MainController {
 
-    MailService mailService;
+    EmailService mailService;
     TemplateEngine templateEngine;
 
     @Autowired
-    public MainController(MailService mailService,
+    public MainController(EmailService mailService,
                           TemplateEngine templateEngine) {
         this.mailService = mailService;
         this.templateEngine = templateEngine;
