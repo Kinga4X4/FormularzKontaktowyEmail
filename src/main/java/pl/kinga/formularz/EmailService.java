@@ -14,7 +14,7 @@ import javax.mail.internet.MimeMessage;
 @Service
 public class EmailService {
 
-    @Autowired
+
     private JavaMailSender javaMailSender;
 
     public EmailService(JavaMailSender javaMailSender) {
@@ -29,15 +29,13 @@ public class EmailService {
             helper.setFrom("paszkiewicz104@gmail.com");
             helper.setSubject(subject);
             helper.setText(content, true);
+            javaMailSender.send(mail);
         } catch (MessagingException e) {
             e.printStackTrace();
-        }
-        javaMailSender.send(mail);
 
+        }
     }
 }
-
-
 
 //    public void sendEmail(String to, String subject, String content) {
 //        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.thymeleaf.TemplateEngine;
-import javax.naming.Context;
+import org.thymeleaf.context.Context;
 
 @Controller
 public class MainController {
@@ -12,7 +12,7 @@ public class MainController {
     EmailService mailService;
     TemplateEngine templateEngine;
 
-    @Autowired
+
     public MainController(EmailService mailService,
                           TemplateEngine templateEngine) {
         this.mailService = mailService;
