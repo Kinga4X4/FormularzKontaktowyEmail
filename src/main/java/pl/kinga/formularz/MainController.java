@@ -1,14 +1,9 @@
 package pl.kinga.formularz;
 
-
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.Context;
+
 
 @Controller
 public class MainController {
@@ -22,14 +17,13 @@ public class MainController {
         this.templateEngine = templateEngine;
     }
 
-    @GetMapping("/sendHtmlEmail")
-    public String sendEmail() {
-        Context context = new Context();
-        context.setVariable("formularz", "email - szablon i wysyłanie");
-        context.setVariable("wypełniony formularz", "Kontakt");
-        String body = templateEngine.process("kontakt", context);
-        mailService.sendHtmlEmail("kinga@byom.de", "Test e-mail", body);
-        return "E-mail sent!";
+    @PostMapping("/sendHtmlEmail")
+    @ResponseBody
+    public String sendEmail(String name,
+                            String email,
+                            String message) {
+        mailService.sendHtmlEmail("kinga@byom.de", name, message);
+        return "E-mail sent! We will contact you soon";
     }
 
     @GetMapping("/")
@@ -46,8 +40,6 @@ public class MainController {
     public String projekty() {
         return "projekty";
     }
-
-
 }
 
 
