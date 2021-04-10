@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org"
-      layout:decorate="~{layout.html}">
+<html lang="en">
 <head>
-    <title>Kontakt</title>
+    <meta charset="UTF-8">
+    <title>Formularz kontaktowy</title>
 </head>
 
 <body>
 
-<section layout:fragment="content">
-
-    <h2 align="center">Kontakt</h2>
-
+<form action="/form" method="post" enctype="multipart/form-data">
     <div class="contact-form" align="center">
-    <form action="/form" method="post" enctype="multipart/form-data">
         <p>
             <input id="name" type="text" name="your-name" placeholder="Name">
         </p>
@@ -24,11 +20,8 @@
             <textarea id="message" name="your-message" placeholder="Message"></textarea>
         </p>
         <p class="contact-submit-holder">
-            <input type="submit" value="SEND">
-        </p>
-    </form>
+            <button type="submit" value="SEND">Wyślij</button>
     </div>
-
-</section>
+</form>
 </body>
 </html>

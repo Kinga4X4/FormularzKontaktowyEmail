@@ -1,8 +1,12 @@
 package pl.kinga.formularz;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
@@ -11,7 +15,6 @@ public class MainController {
 
     EmailService mailService;
     TemplateEngine templateEngine;
-
 
     public MainController(EmailService mailService,
                           TemplateEngine templateEngine) {
@@ -43,5 +46,9 @@ public class MainController {
     public String projekty() {
         return "projekty";
     }
+
+
 }
+
+
 
